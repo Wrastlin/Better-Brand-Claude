@@ -15,7 +15,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-obsidian rounded-t-[2rem] sm:rounded-t-[4rem] px-4 sm:px-12 lg:px-24 pt-12 sm:pt-24 pb-8">
+    <footer className="bg-obsidian rounded-t-[3rem] sm:rounded-t-[4rem] px-6 sm:px-12 lg:px-24 pt-16 sm:pt-24 pb-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-16 mb-16 sm:mb-24">
         {/* Brand */}
         <div>

@@ -25,7 +25,7 @@ export default function Philosophy() {
     <section
       id="philosophy"
       ref={sectionRef}
-      className="relative py-16 sm:py-40 px-4 sm:px-12 lg:px-24 bg-obsidian overflow-hidden"
+      className="relative py-24 sm:py-40 px-6 sm:px-12 lg:px-24 bg-obsidian overflow-hidden"
     >
       {/* Parallax texture background */}
       <div
@@ -41,7 +41,7 @@ export default function Philosophy() {
           with your logo dropped in. Recycled layouts. Cookie-cutter strategy.
         </p>
 
-        <h2 className="phil-line font-drama italic text-2xl sm:text-5xl lg:text-6xl leading-tight text-ivory">
+        <h2 className="phil-line font-drama italic text-3xl sm:text-5xl lg:text-6xl leading-tight text-ivory">
           We write every line of code{' '}
           <span className="text-champagne">from scratch.</span>
         </h2>
