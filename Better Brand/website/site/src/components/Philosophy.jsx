@@ -25,7 +25,7 @@ export default function Philosophy() {
     <section
       id="philosophy"
       ref={sectionRef}
-      className="relative py-20 sm:py-40 px-5 sm:px-12 lg:px-24 bg-obsidian overflow-hidden"
+      className="relative py-24 sm:py-40 px-6 sm:px-12 lg:px-24 bg-obsidian overflow-hidden"
     >
       {/* Parallax texture background */}
       <div
@@ -36,17 +36,17 @@ export default function Philosophy() {
       />
 
       <div className="relative z-10 max-w-4xl mx-auto">
-        <p className="phil-line text-ivory/35 text-[15px] sm:text-lg lg:text-2xl leading-relaxed mb-8 sm:mb-12">
+        <p className="phil-line text-ivory/40 text-base sm:text-lg lg:text-2xl leading-relaxed mb-8 sm:mb-12">
           Most agencies give you a template and call it custom. A page builder
           with your logo dropped in. Recycled layouts. Cookie-cutter strategy.
         </p>
 
-        <h2 className="phil-line font-drama italic text-[1.75rem] sm:text-5xl lg:text-6xl leading-tight text-ivory">
+        <h2 className="phil-line font-drama italic text-3xl sm:text-5xl lg:text-6xl leading-tight text-ivory">
           We write every line of code{' '}
           <span className="text-champagne">from scratch.</span>
         </h2>
 
-        <p className="phil-line mt-8 sm:mt-12 text-ivory/35 text-[15px] sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
+        <p className="phil-line mt-8 sm:mt-12 text-ivory/40 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
           Because your brand isn't generic — so why should your website be?
         </p>
       </div>
