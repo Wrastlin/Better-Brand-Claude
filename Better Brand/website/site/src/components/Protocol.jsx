@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -17,7 +17,7 @@ function RotatingMotif() {
   }, [])
 
   return (
-    <svg ref={ref} viewBox="0 0 120 120" className="w-16 h-16 sm:w-28 sm:h-28 opacity-20">
+    <svg ref={ref} viewBox="0 0 120 120" className="w-20 h-20 sm:w-28 sm:h-28 opacity-20">
       <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" strokeWidth="0.5" />
       <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" strokeWidth="0.5" />
       <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" />
@@ -45,7 +45,7 @@ function ScanningLine() {
   }, [])
 
   return (
-    <svg viewBox="0 0 120 120" className="w-16 h-16 sm:w-28 sm:h-28 opacity-20">
+    <svg viewBox="0 0 120 120" className="w-20 h-20 sm:w-28 sm:h-28 opacity-20">
       {Array.from({ length: 100 }, (_, i) => (
         <circle
           key={i}
@@ -114,40 +114,35 @@ const steps = [
 export default function Protocol() {
   const sectionRef = useRef(null)
   const cardsRef = useRef([])
-  const [isDesktop, setIsDesktop] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)')
-    setIsDesktop(mq.matches)
-    const handler = (e) => setIsDesktop(e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
 
   useGSAP(() => {
-    if (!isDesktop) return
-    const cards = cardsRef.current.filter(Boolean)
-    cards.forEach((card, i) => {
-      if (i < cards.length - 1) {
-        ScrollTrigger.create({
-          trigger: card,
-          start: 'top top',
-          endTrigger: cards[cards.length - 1],
-          end: 'top top',
-          pin: true,
-          pinSpacing: false,
-          onUpdate: (self) => {
-            const progress = self.progress
-            gsap.set(card, {
-              scale: 1 - progress * 0.08,
-              filter: `blur(${progress * 15}px)`,
-              opacity: 1 - progress * 0.4,
+    // Only do sticky stacking on desktop
+    ScrollTrigger.matchMedia({
+      '(min-width: 768px)': function () {
+        const cards = cardsRef.current.filter(Boolean)
+        cards.forEach((card, i) => {
+          if (i < cards.length - 1) {
+            ScrollTrigger.create({
+              trigger: card,
+              start: 'top top',
+              endTrigger: cards[cards.length - 1],
+              end: 'top top',
+              pin: true,
+              pinSpacing: false,
+              onUpdate: (self) => {
+                const progress = self.progress
+                gsap.set(card, {
+                  scale: 1 - progress * 0.08,
+                  filter: `blur(${progress * 15}px)`,
+                  opacity: 1 - progress * 0.4,
+                })
+              },
             })
-          },
+          }
         })
-      }
+      },
     })
-  }, { scope: sectionRef, dependencies: [isDesktop] })
+  }, { scope: sectionRef })
 
   return (
     <section id="protocol" ref={sectionRef} className="relative">
@@ -160,34 +155,11 @@ export default function Protocol() {
         </h2>
       </div>
 
-      {/* Mobile: stacked cards, no animation, content-sized */}
-      {!isDesktop && (
-        <div className="flex flex-col gap-4 px-6 pb-12">
-          {steps.map((step, i) => (
-            <div key={i} className="bg-white border border-slate-dark/15 rounded-2xl p-6 shadow-md relative overflow-hidden">
-              <div className="absolute top-5 right-5 text-slate-dark">
-                <step.Animation />
-              </div>
-              <span className="font-mono text-champagne text-sm block mb-3">
-                {step.number}
-              </span>
-              <h3 className="font-heading font-bold text-obsidian text-xl tracking-tight mb-2 max-w-[65%]">
-                {step.title}
-              </h3>
-              <p className="text-slate-dark/70 text-sm max-w-lg leading-relaxed">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Desktop: scroll-pinned stacking effect */}
-      {isDesktop && steps.map((step, i) => (
+      {steps.map((step, i) => (
         <div
           key={i}
           ref={(el) => (cardsRef.current[i] = el)}
-          className="h-screen w-full flex items-center justify-center px-6 sm:px-12 lg:px-24"
+          className="md:h-screen w-full flex items-center justify-center px-6 sm:px-12 lg:px-24 py-8 md:py-0"
         >
           <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 max-w-4xl w-full shadow-lg relative overflow-hidden">
             <div className="absolute top-8 right-8 sm:top-12 sm:right-12 text-slate-dark">

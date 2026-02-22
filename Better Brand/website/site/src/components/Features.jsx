@@ -24,13 +24,13 @@ function ShufflerCard() {
   }, [])
 
   return (
-    <div className="bg-white border border-slate-dark/15 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-md h-full flex flex-col">
+    <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] p-6 sm:p-8 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <Code2 size={16} className="text-champagne" />
         <span className="font-heading font-semibold text-obsidian text-sm">Custom-Coded</span>
       </div>
 
-      <div className="relative h-24 sm:h-32 mb-4 sm:mb-6">
+      <div className="relative h-32 mb-6">
         {order.map((idx, pos) => (
           <div
             key={idx}
@@ -90,13 +90,13 @@ function TypewriterCard() {
   }, [msgIdx])
 
   return (
-    <div className="bg-white border border-slate-dark/15 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-md h-full flex flex-col">
+    <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] p-6 sm:p-8 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <BarChart3 size={16} className="text-champagne" />
         <span className="font-heading font-semibold text-obsidian text-sm">Design That Converts</span>
       </div>
 
-      <div className="bg-obsidian rounded-xl p-4 mb-4 sm:mb-6 flex flex-col">
+      <div className="bg-obsidian rounded-xl p-4 mb-6 min-h-[8rem] flex flex-col">
         <div className="flex items-center gap-2 mb-3">
           <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span className="font-mono text-[11px] text-ivory/40">Live Feed</span>
@@ -155,13 +155,13 @@ function SchedulerCard() {
   }, [])
 
   return (
-    <div className="bg-white border border-slate-dark/15 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-md h-full flex flex-col">
+    <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] p-6 sm:p-8 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <Layers size={16} className="text-champagne" />
         <span className="font-heading font-semibold text-obsidian text-sm">Full-Service</span>
       </div>
 
-      <div className="bg-obsidian rounded-xl p-4 mb-4 sm:mb-6">
+      <div className="bg-obsidian rounded-xl p-4 mb-6 min-h-[8rem]">
         <span className="font-mono text-[11px] text-ivory/40 block mb-3">
           Strategy → Launch → Growth
         </span>
