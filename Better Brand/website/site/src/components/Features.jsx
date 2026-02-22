@@ -24,34 +24,35 @@ function ShufflerCard() {
   }, [])
 
   return (
-    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-xl h-full flex flex-col">
-      <div className="flex items-center gap-2 mb-4">
-        <Code2 size={16} className="text-champagne" />
-        <span className="font-heading font-semibold text-ivory text-sm">Custom-Coded</span>
+    <div className="bg-obsidian rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full flex flex-col">
+      <div className="flex items-center gap-2.5 mb-5">
+        <div className="w-8 h-8 rounded-lg bg-champagne/10 flex items-center justify-center">
+          <Code2 size={16} className="text-champagne" />
+        </div>
+        <span className="font-heading font-semibold text-ivory text-sm tracking-tight">Custom-Coded</span>
       </div>
 
-      <div className="relative h-28 sm:h-32 mb-4 sm:mb-6">
+      <div className="relative h-24 mb-5">
         {order.map((idx, pos) => (
           <div
             key={idx}
-            className="absolute left-0 right-0 bg-slate-dark text-ivory rounded-xl px-4 py-3 flex items-center justify-between border border-ivory/5"
+            className="absolute left-0 right-0 bg-ivory/[0.07] backdrop-blur-sm text-ivory rounded-xl px-4 py-3 flex items-center justify-between border border-ivory/[0.06]"
             style={{
-              top: `${pos * 14}px`,
+              top: `${pos * 12}px`,
               zIndex: 3 - pos,
-              opacity: 1 - pos * 0.2,
+              opacity: 1 - pos * 0.25,
               transform: `scale(${1 - pos * 0.04})`,
               transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
             }}
           >
-            <span className="font-mono text-xs sm:text-sm">{labels[idx]}</span>
-            <span className="font-mono text-[10px] sm:text-xs text-champagne">{subs[idx]}</span>
+            <span className="font-mono text-xs">{labels[idx]}</span>
+            <span className="font-mono text-[10px] text-champagne">{subs[idx]}</span>
           </div>
         ))}
       </div>
 
-      <p className="text-ivory/50 text-sm leading-relaxed mt-auto">
-        No templates. No page builders. Every site is hand-coded with modern
-        frameworks built for performance.
+      <p className="text-ivory/40 text-[13px] leading-relaxed mt-auto">
+        Hand-coded with modern frameworks. Built for performance.
       </p>
     </div>
   )
@@ -90,32 +91,35 @@ function TypewriterCard() {
   }, [msgIdx])
 
   return (
-    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-xl h-full flex flex-col">
-      <div className="flex items-center gap-2 mb-4">
-        <BarChart3 size={16} className="text-champagne" />
-        <span className="font-heading font-semibold text-ivory text-sm">Design That Converts</span>
+    <div className="bg-obsidian rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full flex flex-col">
+      <div className="flex items-center gap-2.5 mb-5">
+        <div className="w-8 h-8 rounded-lg bg-champagne/10 flex items-center justify-center">
+          <BarChart3 size={16} className="text-champagne" />
+        </div>
+        <span className="font-heading font-semibold text-ivory text-sm tracking-tight">Design That Converts</span>
       </div>
 
-      <div className="bg-slate-dark rounded-xl p-4 mb-4 sm:mb-6 flex flex-col border border-ivory/5">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="font-mono text-[11px] text-ivory/40">Live Feed</span>
+      <div className="bg-ivory/[0.04] rounded-xl p-4 mb-5 border border-ivory/[0.06]">
+        <div className="flex items-center gap-2 mb-2.5">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+          <span className="font-mono text-[10px] text-ivory/30 uppercase tracking-wider">Live</span>
         </div>
-        <div className="font-mono text-xs sm:text-sm text-ivory/90 mb-2">
+        <div className="font-mono text-xs text-ivory/80">
           <span className="text-champagne">{'> '}</span>
           {text}
-          <span className="inline-block w-[2px] h-3.5 bg-champagne ml-0.5 animate-pulse align-middle" />
+          <span className="inline-block w-[2px] h-3 bg-champagne ml-0.5 animate-pulse align-middle" />
         </div>
-        <div className="mt-auto font-mono text-[10px] sm:text-[11px] text-ivory/25 space-y-0.5">
-          {history.map((msg, i) => (
-            <div key={i}>{'> '}{msg}</div>
-          ))}
-        </div>
+        {history.length > 0 && (
+          <div className="mt-2 font-mono text-[10px] text-ivory/20 space-y-0.5">
+            {history.map((msg, i) => (
+              <div key={i}>{'> '}{msg}</div>
+            ))}
+          </div>
+        )}
       </div>
 
-      <p className="text-ivory/50 text-sm leading-relaxed mt-auto">
-        Every pixel has a job. We track what works and optimize what
-        doesn't. Data-driven design, not guesswork.
+      <p className="text-ivory/40 text-[13px] leading-relaxed mt-auto">
+        Data-driven design. We track what works and optimize what doesn't.
       </p>
     </div>
   )
@@ -136,7 +140,6 @@ function SchedulerCard() {
         setSaved(false)
         await wait(800)
 
-        // Activate days one by one
         for (const day of [1, 3, 5]) {
           if (cancelled) return
           setActiveDays((prev) => new Set([...prev, day]))
@@ -155,24 +158,26 @@ function SchedulerCard() {
   }, [])
 
   return (
-    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-xl h-full flex flex-col">
-      <div className="flex items-center gap-2 mb-4">
-        <Layers size={16} className="text-champagne" />
-        <span className="font-heading font-semibold text-ivory text-sm">Full-Service</span>
+    <div className="bg-obsidian rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full flex flex-col">
+      <div className="flex items-center gap-2.5 mb-5">
+        <div className="w-8 h-8 rounded-lg bg-champagne/10 flex items-center justify-center">
+          <Layers size={16} className="text-champagne" />
+        </div>
+        <span className="font-heading font-semibold text-ivory text-sm tracking-tight">Full-Service</span>
       </div>
 
-      <div className="bg-slate-dark rounded-xl p-4 mb-4 sm:mb-6 border border-ivory/5">
-        <span className="font-mono text-[11px] text-ivory/40 block mb-3">
+      <div className="bg-ivory/[0.04] rounded-xl p-4 mb-5 border border-ivory/[0.06]">
+        <span className="font-mono text-[10px] text-ivory/30 block mb-3 uppercase tracking-wider">
           Strategy → Launch → Growth
         </span>
-        <div className="grid grid-cols-7 gap-2 sm:gap-1.5 mb-4">
+        <div className="grid grid-cols-7 gap-1.5 mb-3">
           {days.map((day, i) => (
             <div
               key={i}
-              className={`text-center py-2.5 sm:py-2 rounded-lg font-mono text-xs transition-all duration-300 ${
+              className={`text-center py-2 rounded-lg font-mono text-[11px] transition-all duration-300 ${
                 activeDays.has(i)
-                  ? 'bg-champagne text-obsidian scale-95'
-                  : 'bg-ivory/10 text-ivory/40'
+                  ? 'bg-champagne text-obsidian font-semibold'
+                  : 'bg-ivory/[0.06] text-ivory/30'
               }`}
             >
               {day}
@@ -180,17 +185,16 @@ function SchedulerCard() {
           ))}
         </div>
         <div
-          className={`inline-block px-3 py-1 rounded-full font-mono text-xs transition-all duration-300 ${
-            saved ? 'bg-champagne text-obsidian' : 'bg-ivory/10 text-ivory/30'
+          className={`inline-block px-3 py-1 rounded-full font-mono text-[11px] transition-all duration-300 ${
+            saved ? 'bg-champagne text-obsidian' : 'bg-ivory/[0.06] text-ivory/25'
           }`}
         >
           {saved ? '✓ Saved' : 'Save'}
         </div>
       </div>
 
-      <p className="text-ivory/50 text-sm leading-relaxed mt-auto">
-        Strategy to launch to growth. One team handles everything — design,
-        development, and marketing.
+      <p className="text-ivory/40 text-[13px] leading-relaxed mt-auto">
+        One team handles everything — design, development, and marketing.
       </p>
     </div>
   )
@@ -216,14 +220,14 @@ export default function Features() {
   }, { scope: sectionRef })
 
   return (
-    <section id="features" ref={sectionRef} className="py-16 sm:py-32 px-4 sm:px-12 lg:px-24">
-      <p className="font-mono text-xs text-champagne tracking-widest uppercase mb-4">
+    <section id="features" ref={sectionRef} className="py-16 sm:py-32 px-5 sm:px-12 lg:px-24">
+      <p className="font-mono text-[11px] text-champagne tracking-widest uppercase mb-3">
         What We Build
       </p>
-      <h2 className="font-heading font-bold text-obsidian text-2xl sm:text-4xl lg:text-5xl tracking-tight mb-10 sm:mb-16 max-w-2xl">
+      <h2 className="font-heading font-bold text-obsidian text-2xl sm:text-4xl lg:text-5xl tracking-tight mb-8 sm:mb-16 max-w-2xl">
         Websites that work as hard as you do.
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6">
         <div className="feature-card"><ShufflerCard /></div>
         <div className="feature-card"><TypewriterCard /></div>
         <div className="feature-card"><SchedulerCard /></div>

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -110,39 +110,65 @@ const steps = [
   },
 ]
 
+/* ─── Step Card ─── */
+function StepCard({ step }) {
+  return (
+    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-16 max-w-4xl w-full shadow-xl relative overflow-hidden">
+      <div className="absolute top-6 right-6 sm:top-12 sm:right-12 text-ivory">
+        <step.Animation />
+      </div>
+      <span className="font-mono text-champagne text-sm block mb-3 sm:mb-4">
+        {step.number}
+      </span>
+      <h3 className="font-heading font-bold text-ivory text-xl sm:text-3xl lg:text-4xl tracking-tight mb-3 sm:mb-4 max-w-[70%] sm:max-w-none">
+        {step.title}
+      </h3>
+      <p className="text-ivory/50 text-sm sm:text-lg max-w-lg leading-relaxed">
+        {step.description}
+      </p>
+    </div>
+  )
+}
+
 /* ─── Protocol Section ─── */
 export default function Protocol() {
   const sectionRef = useRef(null)
+  const desktopRef = useRef(null)
   const cardsRef = useRef([])
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    setIsDesktop(mq.matches)
+    const handler = (e) => setIsDesktop(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   useGSAP(() => {
-    // Only do sticky stacking on desktop
-    ScrollTrigger.matchMedia({
-      '(min-width: 768px)': function () {
-        const cards = cardsRef.current.filter(Boolean)
-        cards.forEach((card, i) => {
-          if (i < cards.length - 1) {
-            ScrollTrigger.create({
-              trigger: card,
-              start: 'top top',
-              endTrigger: cards[cards.length - 1],
-              end: 'top top',
-              pin: true,
-              pinSpacing: false,
-              onUpdate: (self) => {
-                const progress = self.progress
-                gsap.set(card, {
-                  scale: 1 - progress * 0.08,
-                  filter: `blur(${progress * 15}px)`,
-                  opacity: 1 - progress * 0.4,
-                })
-              },
+    if (!isDesktop || !desktopRef.current) return
+    const cards = cardsRef.current.filter(Boolean)
+    cards.forEach((card, i) => {
+      if (i < cards.length - 1) {
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top top',
+          endTrigger: cards[cards.length - 1],
+          end: 'top top',
+          pin: true,
+          pinSpacing: false,
+          onUpdate: (self) => {
+            const progress = self.progress
+            gsap.set(card, {
+              scale: 1 - progress * 0.08,
+              filter: `blur(${progress * 15}px)`,
+              opacity: 1 - progress * 0.4,
             })
-          }
+          },
         })
-      },
+      }
     })
-  }, { scope: sectionRef })
+  }, { scope: desktopRef, dependencies: [isDesktop] })
 
   return (
     <section id="protocol" ref={sectionRef} className="relative">
@@ -155,28 +181,29 @@ export default function Protocol() {
         </h2>
       </div>
 
-      {steps.map((step, i) => (
-        <div
-          key={i}
-          ref={(el) => (cardsRef.current[i] = el)}
-          className="min-h-0 md:h-screen w-full flex items-center justify-center px-4 sm:px-12 lg:px-24 py-4 md:py-0"
-        >
-          <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-16 max-w-4xl w-full shadow-xl relative overflow-hidden">
-            <div className="absolute top-6 right-6 sm:top-12 sm:right-12 text-ivory">
-              <step.Animation />
-            </div>
-            <span className="font-mono text-champagne text-sm block mb-3 sm:mb-4">
-              {step.number}
-            </span>
-            <h3 className="font-heading font-bold text-ivory text-xl sm:text-3xl lg:text-4xl tracking-tight mb-3 sm:mb-4 max-w-[70%] sm:max-w-none">
-              {step.title}
-            </h3>
-            <p className="text-ivory/50 text-sm sm:text-lg max-w-lg leading-relaxed">
-              {step.description}
-            </p>
-          </div>
+      {/* Mobile: simple stacked cards */}
+      {!isDesktop && (
+        <div className="flex flex-col gap-4 px-4 pb-8">
+          {steps.map((step, i) => (
+            <StepCard key={i} step={step} />
+          ))}
         </div>
-      ))}
+      )}
+
+      {/* Desktop: scroll-pinned stacking effect */}
+      {isDesktop && (
+        <div ref={desktopRef}>
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              ref={(el) => (cardsRef.current[i] = el)}
+              className="h-screen w-full flex items-center justify-center px-12 lg:px-24"
+            >
+              <StepCard step={step} />
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   )
 }
