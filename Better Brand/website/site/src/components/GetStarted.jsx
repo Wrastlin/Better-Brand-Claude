@@ -25,14 +25,14 @@ export default function GetStarted() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-24 sm:py-40 px-6 sm:px-12 lg:px-24 bg-obsidian"
+      className="py-16 sm:py-40 px-4 sm:px-12 lg:px-24 bg-obsidian"
     >
       <div className="max-w-3xl mx-auto text-center">
         <p className="cta-anim font-mono text-xs text-champagne tracking-widest uppercase mb-6">
           Let's Talk
         </p>
 
-        <h2 className="cta-anim font-drama italic text-ivory text-3xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        <h2 className="cta-anim font-drama italic text-ivory text-2xl sm:text-5xl lg:text-6xl leading-tight mb-6">
           Ready to build something{' '}
           <span className="text-champagne">better?</span>
         </h2>

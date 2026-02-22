@@ -24,13 +24,13 @@ function ShufflerCard() {
   }, [])
 
   return (
-    <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] p-6 sm:p-8 shadow-sm h-full flex flex-col">
+    <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <Code2 size={16} className="text-champagne" />
         <span className="font-heading font-semibold text-obsidian text-sm">Custom-Coded</span>
       </div>
 
-      <div className="relative h-32 mb-6">
+      <div className="relative h-28 sm:h-32 mb-4 sm:mb-6">
         {order.map((idx, pos) => (
           <div
             key={idx}
@@ -43,8 +43,8 @@ function ShufflerCard() {
               transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
             }}
           >
-            <span className="font-mono text-sm">{labels[idx]}</span>
-            <span className="font-mono text-xs text-champagne">{subs[idx]}</span>
+            <span className="font-mono text-xs sm:text-sm">{labels[idx]}</span>
+            <span className="font-mono text-[10px] sm:text-xs text-champagne">{subs[idx]}</span>
           </div>
         ))}
       </div>
@@ -90,23 +90,23 @@ function TypewriterCard() {
   }, [msgIdx])
 
   return (
-    <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] p-6 sm:p-8 shadow-sm h-full flex flex-col">
+    <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <BarChart3 size={16} className="text-champagne" />
         <span className="font-heading font-semibold text-obsidian text-sm">Design That Converts</span>
       </div>
 
-      <div className="bg-obsidian rounded-xl p-4 mb-6 min-h-[8rem] flex flex-col">
+      <div className="bg-obsidian rounded-xl p-4 mb-4 sm:mb-6 min-h-[7rem] sm:min-h-[8rem] flex flex-col">
         <div className="flex items-center gap-2 mb-3">
           <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span className="font-mono text-[11px] text-ivory/40">Live Feed</span>
         </div>
-        <div className="font-mono text-sm text-ivory/90 mb-2">
+        <div className="font-mono text-xs sm:text-sm text-ivory/90 mb-2">
           <span className="text-champagne">{'> '}</span>
           {text}
           <span className="inline-block w-[2px] h-3.5 bg-champagne ml-0.5 animate-pulse align-middle" />
         </div>
-        <div className="mt-auto font-mono text-[11px] text-ivory/25 space-y-0.5">
+        <div className="mt-auto font-mono text-[10px] sm:text-[11px] text-ivory/25 space-y-0.5">
           {history.map((msg, i) => (
             <div key={i}>{'> '}{msg}</div>
           ))}
@@ -155,21 +155,21 @@ function SchedulerCard() {
   }, [])
 
   return (
-    <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] p-6 sm:p-8 shadow-sm h-full flex flex-col">
+    <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <Layers size={16} className="text-champagne" />
         <span className="font-heading font-semibold text-obsidian text-sm">Full-Service</span>
       </div>
 
-      <div className="bg-obsidian rounded-xl p-4 mb-6 min-h-[8rem]">
+      <div className="bg-obsidian rounded-xl p-4 mb-4 sm:mb-6 min-h-[7rem] sm:min-h-[8rem]">
         <span className="font-mono text-[11px] text-ivory/40 block mb-3">
           Strategy → Launch → Growth
         </span>
-        <div className="grid grid-cols-7 gap-1.5 mb-4">
+        <div className="grid grid-cols-7 gap-2 sm:gap-1.5 mb-4">
           {days.map((day, i) => (
             <div
               key={i}
-              className={`text-center py-2 rounded-lg font-mono text-xs transition-all duration-300 ${
+              className={`text-center py-2.5 sm:py-2 rounded-lg font-mono text-xs transition-all duration-300 ${
                 activeDays.has(i)
                   ? 'bg-champagne text-obsidian scale-95'
                   : 'bg-ivory/10 text-ivory/40'
@@ -216,14 +216,14 @@ export default function Features() {
   }, { scope: sectionRef })
 
   return (
-    <section id="features" ref={sectionRef} className="py-20 sm:py-32 px-6 sm:px-12 lg:px-24">
+    <section id="features" ref={sectionRef} className="py-16 sm:py-32 px-4 sm:px-12 lg:px-24">
       <p className="font-mono text-xs text-champagne tracking-widest uppercase mb-4">
         What We Build
       </p>
-      <h2 className="font-heading font-bold text-obsidian text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-12 sm:mb-16 max-w-2xl">
+      <h2 className="font-heading font-bold text-obsidian text-2xl sm:text-4xl lg:text-5xl tracking-tight mb-10 sm:mb-16 max-w-2xl">
         Websites that work as hard as you do.
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
         <div className="feature-card"><ShufflerCard /></div>
         <div className="feature-card"><TypewriterCard /></div>
         <div className="feature-card"><SchedulerCard /></div>

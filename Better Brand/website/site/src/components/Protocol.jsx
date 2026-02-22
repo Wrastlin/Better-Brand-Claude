@@ -17,7 +17,7 @@ function RotatingMotif() {
   }, [])
 
   return (
-    <svg ref={ref} viewBox="0 0 120 120" className="w-20 h-20 sm:w-28 sm:h-28 opacity-20">
+    <svg ref={ref} viewBox="0 0 120 120" className="w-16 h-16 sm:w-28 sm:h-28 opacity-20">
       <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" strokeWidth="0.5" />
       <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" strokeWidth="0.5" />
       <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" strokeWidth="0.5" />
@@ -45,7 +45,7 @@ function ScanningLine() {
   }, [])
 
   return (
-    <svg viewBox="0 0 120 120" className="w-20 h-20 sm:w-28 sm:h-28 opacity-20">
+    <svg viewBox="0 0 120 120" className="w-16 h-16 sm:w-28 sm:h-28 opacity-20">
       {Array.from({ length: 100 }, (_, i) => (
         <circle
           key={i}
@@ -74,7 +74,7 @@ function PulsingWave() {
   }, [])
 
   return (
-    <svg viewBox="0 0 200 60" className="w-28 sm:w-40 h-10 sm:h-14 opacity-20">
+    <svg viewBox="0 0 200 60" className="w-24 sm:w-40 h-8 sm:h-14 opacity-20">
       <path
         ref={ref}
         d="M0,30 Q25,5 50,30 Q75,55 100,30 Q125,5 150,30 Q175,55 200,30"
@@ -146,11 +146,11 @@ export default function Protocol() {
 
   return (
     <section id="protocol" ref={sectionRef} className="relative">
-      <div className="px-6 sm:px-12 lg:px-24 pt-20 sm:pt-32 pb-8">
+      <div className="px-4 sm:px-12 lg:px-24 pt-16 sm:pt-32 pb-6 sm:pb-8">
         <p className="font-mono text-xs text-champagne tracking-widest uppercase mb-4">
           Our Process
         </p>
-        <h2 className="font-heading font-bold text-obsidian text-3xl sm:text-4xl lg:text-5xl tracking-tight max-w-2xl">
+        <h2 className="font-heading font-bold text-obsidian text-2xl sm:text-4xl lg:text-5xl tracking-tight max-w-2xl">
           Three steps. Zero guesswork.
         </h2>
       </div>
@@ -159,19 +159,19 @@ export default function Protocol() {
         <div
           key={i}
           ref={(el) => (cardsRef.current[i] = el)}
-          className="min-h-[80vh] md:h-screen w-full flex items-center justify-center px-6 sm:px-12 lg:px-24 py-8 md:py-0"
+          className="min-h-0 md:h-screen w-full flex items-center justify-center px-4 sm:px-12 lg:px-24 py-4 md:py-0"
         >
-          <div className="bg-ivory border border-slate-dark/10 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 lg:p-16 max-w-4xl w-full shadow-lg relative overflow-hidden">
-            <div className="absolute top-8 right-8 sm:top-12 sm:right-12 text-slate-dark">
+          <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-16 max-w-4xl w-full shadow-lg relative overflow-hidden">
+            <div className="absolute top-6 right-6 sm:top-12 sm:right-12 text-slate-dark">
               <step.Animation />
             </div>
-            <span className="font-mono text-champagne text-sm block mb-4">
+            <span className="font-mono text-champagne text-sm block mb-3 sm:mb-4">
               {step.number}
             </span>
-            <h3 className="font-heading font-bold text-obsidian text-2xl sm:text-3xl lg:text-4xl tracking-tight mb-4">
+            <h3 className="font-heading font-bold text-obsidian text-xl sm:text-3xl lg:text-4xl tracking-tight mb-3 sm:mb-4 max-w-[70%] sm:max-w-none">
               {step.title}
             </h3>
-            <p className="text-slate-dark/70 text-base sm:text-lg max-w-lg leading-relaxed">
+            <p className="text-slate-dark/70 text-sm sm:text-lg max-w-lg leading-relaxed">
               {step.description}
             </p>
           </div>
