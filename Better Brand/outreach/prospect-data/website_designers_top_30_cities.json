@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Stellaractive",
+    "categoryName": "Website designer",
+    "address": "3003 SE Milwaukie Ave, Portland, OR 97202",
+    "city": "Portland",
+    "state": "Oregon",
+    "website": "https://www.stellaractive.com/?utm_source=Google&utm_medium=GBP&utm_campaign=Google_Business_Profile_Website",
+    "phone": "(503) 384-2413",
+    "totalScore": 4.9,
+    "reviewsCount": 47,
+    "url": "https://www.google.com/maps/search/?api=1&query=Stellaractive&query_place_id=ChIJf3tqEGCglVQR3sSE5DUbklY"
+  },
+  {
+    "title": "Cyphon Digital",
+    "categoryName": "Website designer",
+    "address": "1649 NE 140th Ave, Portland, OR 97230",
+    "city": "Portland",
+    "state": "Oregon",
+    "website": "https://cyphondigital.com/portland-web-design/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+    "phone": "(503) 887-2977",
+    "totalScore": 5,
+    "reviewsCount": 20,
+    "url": "https://www.google.com/maps/search/?api=1&query=Cyphon%20Digital&query_place_id=ChIJAQAAABAPlVQRa2ZrE6WBjiQ"
+  }
+]
+// ... and 298 more entries ...
