@@ -161,17 +161,17 @@ export default function Protocol() {
           ref={(el) => (cardsRef.current[i] = el)}
           className="min-h-0 md:h-screen w-full flex items-center justify-center px-4 sm:px-12 lg:px-24 py-4 md:py-0"
         >
-          <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-16 max-w-4xl w-full shadow-lg relative overflow-hidden">
-            <div className="absolute top-6 right-6 sm:top-12 sm:right-12 text-slate-dark">
+          <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-16 max-w-4xl w-full shadow-xl relative overflow-hidden">
+            <div className="absolute top-6 right-6 sm:top-12 sm:right-12 text-ivory">
               <step.Animation />
             </div>
             <span className="font-mono text-champagne text-sm block mb-3 sm:mb-4">
               {step.number}
             </span>
-            <h3 className="font-heading font-bold text-obsidian text-xl sm:text-3xl lg:text-4xl tracking-tight mb-3 sm:mb-4 max-w-[70%] sm:max-w-none">
+            <h3 className="font-heading font-bold text-ivory text-xl sm:text-3xl lg:text-4xl tracking-tight mb-3 sm:mb-4 max-w-[70%] sm:max-w-none">
               {step.title}
             </h3>
-            <p className="text-slate-dark/70 text-sm sm:text-lg max-w-lg leading-relaxed">
+            <p className="text-ivory/50 text-sm sm:text-lg max-w-lg leading-relaxed">
               {step.description}
             </p>
           </div>

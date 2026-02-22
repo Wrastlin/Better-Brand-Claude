@@ -24,17 +24,17 @@ function ShufflerCard() {
   }, [])
 
   return (
-    <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-sm h-full flex flex-col">
+    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-xl h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <Code2 size={16} className="text-champagne" />
-        <span className="font-heading font-semibold text-obsidian text-sm">Custom-Coded</span>
+        <span className="font-heading font-semibold text-ivory text-sm">Custom-Coded</span>
       </div>
 
       <div className="relative h-28 sm:h-32 mb-4 sm:mb-6">
         {order.map((idx, pos) => (
           <div
             key={idx}
-            className="absolute left-0 right-0 bg-obsidian text-ivory rounded-xl px-4 py-3 flex items-center justify-between"
+            className="absolute left-0 right-0 bg-slate-dark text-ivory rounded-xl px-4 py-3 flex items-center justify-between border border-ivory/5"
             style={{
               top: `${pos * 14}px`,
               zIndex: 3 - pos,
@@ -49,7 +49,7 @@ function ShufflerCard() {
         ))}
       </div>
 
-      <p className="text-slate-dark/70 text-sm leading-relaxed mt-auto">
+      <p className="text-ivory/50 text-sm leading-relaxed mt-auto">
         No templates. No page builders. Every site is hand-coded with modern
         frameworks built for performance.
       </p>
@@ -90,13 +90,13 @@ function TypewriterCard() {
   }, [msgIdx])
 
   return (
-    <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-sm h-full flex flex-col">
+    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-xl h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <BarChart3 size={16} className="text-champagne" />
-        <span className="font-heading font-semibold text-obsidian text-sm">Design That Converts</span>
+        <span className="font-heading font-semibold text-ivory text-sm">Design That Converts</span>
       </div>
 
-      <div className="bg-obsidian rounded-xl p-4 mb-4 sm:mb-6 min-h-[7rem] sm:min-h-[8rem] flex flex-col">
+      <div className="bg-slate-dark rounded-xl p-4 mb-4 sm:mb-6 flex flex-col border border-ivory/5">
         <div className="flex items-center gap-2 mb-3">
           <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span className="font-mono text-[11px] text-ivory/40">Live Feed</span>
@@ -113,7 +113,7 @@ function TypewriterCard() {
         </div>
       </div>
 
-      <p className="text-slate-dark/70 text-sm leading-relaxed mt-auto">
+      <p className="text-ivory/50 text-sm leading-relaxed mt-auto">
         Every pixel has a job. We track what works and optimize what
         doesn't. Data-driven design, not guesswork.
       </p>
@@ -155,13 +155,13 @@ function SchedulerCard() {
   }, [])
 
   return (
-    <div className="bg-ivory border border-slate-dark/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-sm h-full flex flex-col">
+    <div className="bg-obsidian border border-ivory/10 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-xl h-full flex flex-col">
       <div className="flex items-center gap-2 mb-4">
         <Layers size={16} className="text-champagne" />
-        <span className="font-heading font-semibold text-obsidian text-sm">Full-Service</span>
+        <span className="font-heading font-semibold text-ivory text-sm">Full-Service</span>
       </div>
 
-      <div className="bg-obsidian rounded-xl p-4 mb-4 sm:mb-6 min-h-[7rem] sm:min-h-[8rem]">
+      <div className="bg-slate-dark rounded-xl p-4 mb-4 sm:mb-6 border border-ivory/5">
         <span className="font-mono text-[11px] text-ivory/40 block mb-3">
           Strategy → Launch → Growth
         </span>
@@ -188,7 +188,7 @@ function SchedulerCard() {
         </div>
       </div>
 
-      <p className="text-slate-dark/70 text-sm leading-relaxed mt-auto">
+      <p className="text-ivory/50 text-sm leading-relaxed mt-auto">
         Strategy to launch to growth. One team handles everything — design,
         development, and marketing.
       </p>
